@@ -127,3 +127,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 GRAPHENE = {
     'SCHEMA': 'alx-backend-graphql_crm.schema.schema'
 }
+
+# Django-crontab Configuration
+CRONJOBS = [
+    ('*/5 * * * *', 'crm.cron.log_crm_heartbeat'),
+    ('0 */12 * * *', 'crm.cron.update_low_stock'),
+]
+
+# Crontab settings
+CRONTAB_LOCK_JOBS = True
+CRONTAB_COMMAND_SUFFIX = '2>&1'
